@@ -1,0 +1,30 @@
+html {
+    box-sizing: border-box
+}
+
+body {
+    background-color: rgb(12, 13, 20);
+    color: #F6F5F4;
+    margin: 0;
+    font-size: 12pt;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.spacer {
+    height: 3.5rem;
+    width: 100%;
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
