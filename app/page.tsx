@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { HomePage } from "./components/HomePage";
 import { useTelegramMiniApp } from "./hooks/useTelegramMiniApp";
 import { useQueryParams } from "./hooks/useQueryParams";
+import { InitData } from "@telegram-apps/init-data-node";
 // import { popup } from "@telegram-apps/sdk"; NOSONAR
 
 
@@ -13,6 +14,7 @@ export default function SupportBotApp() {
     const miniApp = useTelegramMiniApp(queryParams);
 
     const [authorized, setAuthorized] = useState(false);
+    const [initData, setInitData] = useState<InitData>();
 
     useEffect(() => {
 
@@ -23,6 +25,7 @@ export default function SupportBotApp() {
                 .then(data => {
                     // Redirect
                     console.log("User validated")
+                    setInitData(data.data.initData)
                     setAuthorized(true);
                 })
                 .catch(error => {
@@ -32,5 +35,5 @@ export default function SupportBotApp() {
         }
     }, [miniApp]);
 
-    return authorized && (<HomePage></HomePage>)
+    return authorized && (<HomePage initData={initData}></HomePage>)
 }

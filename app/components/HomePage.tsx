@@ -1,12 +1,19 @@
 "use client";
 
+import { InitData } from "@telegram-apps/init-data-node";
+
 export const revalidate = 0;
 
-export const HomePage = () => {
+interface HomePageProps {
+    initData?: InitData
+}
+
+export const HomePage = ({initData}: HomePageProps) => {
 
     return (
         <>
-            YAY!!!!!!
+            Welcome {initData.user.firstName}!<br />
+            User ID {initData.user.id}
         </>
     );
 
