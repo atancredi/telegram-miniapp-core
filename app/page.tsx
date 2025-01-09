@@ -5,7 +5,7 @@ import { HomePage } from "./components/HomePage";
 import { useTelegramMiniApp } from "./hooks/useTelegramMiniApp";
 import { useQueryParams } from "./hooks/useQueryParams";
 import { InitData } from "@telegram-apps/init-data-node";
-// import { popup } from "@telegram-apps/sdk"; NOSONAR
+// import { popup } from "@telegram-apps/sdk-react"; NOSONAR
 
 
 export default function SupportBotApp() {
@@ -33,7 +33,7 @@ export default function SupportBotApp() {
                     // popup.open({"message": "An error occurred"})
                 })
         }
-    }, [miniApp]);
+    }, [miniApp.isTelegram]);
 
     return authorized && (<HomePage initData={initData}></HomePage>)
 }

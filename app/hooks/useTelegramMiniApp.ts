@@ -5,9 +5,9 @@ import {
     expandViewport,
     swipeBehavior,
     closingBehavior,
-    mainButton, postEvent, setMiniAppHeaderColor
-} from '@telegram-apps/sdk';
-import { retrieveLaunchParams } from "@telegram-apps/sdk-react";
+    mainButton, postEvent, setMiniAppHeaderColor,
+    retrieveLaunchParams
+} from '@telegram-apps/sdk-react';
 import {
     on, defineEventHandlers, isTMA
 } from '@telegram-apps/bridge';
@@ -165,7 +165,7 @@ export const useTelegramMiniApp = (queryParams: IQueryParams): IMiniApp => {
                 console.error(error)
             }
         }
-    }, [isTelegram])
+    }, [isTelegram, queryParams])
 
     const authorize = () => {
         const launchParams = retrieveLaunchParams();
